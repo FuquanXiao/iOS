@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "WQCircularLoaderHUD.h"
+#import <QuartzCore/QuartzCore.h>
 @interface CustomImageView : UIImageView
 
 @end
