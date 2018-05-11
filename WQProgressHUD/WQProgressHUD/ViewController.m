@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-
+#import "CustomImageView.h"
 @interface ViewController ()
 
 @end
@@ -16,7 +16,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    CustomImageView *hud = [[CustomImageView alloc] initWithFrame:CGRectMake(60, 100, 100, 100)];
+    hud.image = [UIImage imageNamed:@"1461298347288183414"];
+    
+    [self.view addSubview:hud];
+    
 }
 
 
