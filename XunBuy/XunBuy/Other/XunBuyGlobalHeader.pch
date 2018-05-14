@@ -1,0 +1,20 @@
+//
+//  XunBuyGlobalHeader.pch
+//  XunBuy
+//
+//  Created by wujianming on 15/12/31.
+//  Copyright © 2015年 kimee. All rights reserved.
+//
+
+#ifndef XunBuyGlobalHeader_pch
+#define XunBuyGlobalHeader_pch
+
+#import <UIKit/UIKit.h>
+#import "BaseController.h"
+#import "GlobalDefine.h"
+#import "Categorys.h"
+#import "AFNetworking.h"
+#import "UIImageView+WebCache.h"
+#import "Masonry.h"
+
+#endif /* XunBuyGlobalHeader_pch */

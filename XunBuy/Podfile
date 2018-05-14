@@ -1,0 +1,5 @@
+platform :ios, '7.0'
+pod "AFNetworking”, '3.0.4'
+pod 'SDWebImage', '0.6.4'
+pod 'SDCycleScrollView', '1.3'
+pod 'Masonry', '3.7.3'
