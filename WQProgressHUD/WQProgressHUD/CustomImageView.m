@@ -8,6 +8,11 @@
 
 #import "CustomImageView.h"
 
+
+
+
+
+
 @implementation CustomImageView
 
 - (instancetype)initWithFrame:(CGRect)frame{
@@ -16,9 +21,12 @@
         [self addSubview:hud];
         hud.progress = 90/100.0;
         [hud revea];
+        
     }
     return self;
 }
+
+
 /*
 // Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
