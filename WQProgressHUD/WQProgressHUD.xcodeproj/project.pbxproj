@@ -15,6 +15,9 @@
 		F786669B20A47745006D72FF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F786669A20A47745006D72FF /* main.m */; };
 		F78666A520A47745006D72FF /* WQProgressHUDTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F78666A420A47745006D72FF /* WQProgressHUDTests.m */; };
 		F78666B020A47746006D72FF /* WQProgressHUDUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F78666AF20A47746006D72FF /* WQProgressHUDUITests.m */; };
+		F78666BF20A48D99006D72FF /* WQCircularLoaderHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = F78666BE20A48D99006D72FF /* WQCircularLoaderHUD.m */; };
+		F78666C220A4963B006D72FF /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = F78666C120A4963B006D72FF /* CustomImageView.m */; };
+		F78666C420A49701006D72FF /* 1461298347288183414.png in Resources */ = {isa = PBXBuildFile; fileRef = F78666C320A49701006D72FF /* 1461298347288183414.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,11 @@
 		F78666AB20A47746006D72FF /* WQProgressHUDUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WQProgressHUDUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F78666AF20A47746006D72FF /* WQProgressHUDUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQProgressHUDUITests.m; sourceTree = "<group>"; };
 		F78666B120A47746006D72FF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F78666BD20A48D99006D72FF /* WQCircularLoaderHUD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WQCircularLoaderHUD.h; sourceTree = "<group>"; };
+		F78666BE20A48D99006D72FF /* WQCircularLoaderHUD.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQCircularLoaderHUD.m; sourceTree = "<group>"; };
+		F78666C020A4963B006D72FF /* CustomImageView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CustomImageView.h; sourceTree = "<group>"; };
+		F78666C120A4963B006D72FF /* CustomImageView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CustomImageView.m; sourceTree = "<group>"; };
+		F78666C320A49701006D72FF /* 1461298347288183414.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1461298347288183414.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +109,15 @@
 		F786668A20A47745006D72FF /* WQProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				F78666C320A49701006D72FF /* 1461298347288183414.png */,
 				F786668B20A47745006D72FF /* AppDelegate.h */,
 				F786668C20A47745006D72FF /* AppDelegate.m */,
 				F786668E20A47745006D72FF /* ViewController.h */,
 				F786668F20A47745006D72FF /* ViewController.m */,
+				F78666C020A4963B006D72FF /* CustomImageView.h */,
+				F78666C120A4963B006D72FF /* CustomImageView.m */,
+				F78666BD20A48D99006D72FF /* WQCircularLoaderHUD.h */,
+				F78666BE20A48D99006D72FF /* WQCircularLoaderHUD.m */,
 				F786669120A47745006D72FF /* Main.storyboard */,
 				F786669420A47745006D72FF /* Assets.xcassets */,
 				F786669620A47745006D72FF /* LaunchScreen.storyboard */,
@@ -240,6 +253,7 @@
 			files = (
 				F786669820A47745006D72FF /* LaunchScreen.storyboard in Resources */,
 				F786669520A47745006D72FF /* Assets.xcassets in Resources */,
+				F78666C420A49701006D72FF /* 1461298347288183414.png in Resources */,
 				F786669320A47745006D72FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +279,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F78666C220A4963B006D72FF /* CustomImageView.m in Sources */,
 				F786669020A47745006D72FF /* ViewController.m in Sources */,
+				F78666BF20A48D99006D72FF /* WQCircularLoaderHUD.m in Sources */,
 				F786669B20A47745006D72FF /* main.m in Sources */,
 				F786668D20A47745006D72FF /* AppDelegate.m in Sources */,
 			);
