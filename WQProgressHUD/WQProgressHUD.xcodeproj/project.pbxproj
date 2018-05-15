@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C841E43220A522170088D0FE /* CustomImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = C841E42F20A522170088D0FE /* CustomImageView.m */; };
+		C841E43320A522170088D0FE /* 1461298347288183414.png in Resources */ = {isa = PBXBuildFile; fileRef = C841E43020A522170088D0FE /* 1461298347288183414.png */; };
+		C841E43420A522170088D0FE /* WQCircularLoaderHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = C841E43120A522170088D0FE /* WQCircularLoaderHUD.m */; };
+		C841E43720A522E60088D0FE /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C841E43620A522E60088D0FE /* QuartzCore.framework */; };
 		F786668D20A47745006D72FF /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = F786668C20A47745006D72FF /* AppDelegate.m */; };
 		F786669020A47745006D72FF /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F786668F20A47745006D72FF /* ViewController.m */; };
 		F786669320A47745006D72FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F786669120A47745006D72FF /* Main.storyboard */; };
@@ -35,6 +39,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C841E42D20A522170088D0FE /* WQCircularLoaderHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQCircularLoaderHUD.h; sourceTree = "<group>"; };
+		C841E42E20A522170088D0FE /* CustomImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomImageView.h; sourceTree = "<group>"; };
+		C841E42F20A522170088D0FE /* CustomImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageView.m; sourceTree = "<group>"; };
+		C841E43020A522170088D0FE /* 1461298347288183414.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1461298347288183414.png; sourceTree = "<group>"; };
+		C841E43120A522170088D0FE /* WQCircularLoaderHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQCircularLoaderHUD.m; sourceTree = "<group>"; };
+		C841E43620A522E60088D0FE /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F786668820A47745006D72FF /* WQProgressHUD.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WQProgressHUD.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F786668B20A47745006D72FF /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F786668C20A47745006D72FF /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C841E43720A522E60088D0FE /* QuartzCore.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +89,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C841E43520A522E60088D0FE /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C841E43620A522E60088D0FE /* QuartzCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F786667F20A47745006D72FF = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +104,7 @@
 				F78666A320A47745006D72FF /* WQProgressHUDTests */,
 				F78666AE20A47746006D72FF /* WQProgressHUDUITests */,
 				F786668920A47745006D72FF /* Products */,
+				C841E43520A522E60088D0FE /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,6 +121,11 @@
 		F786668A20A47745006D72FF /* WQProgressHUD */ = {
 			isa = PBXGroup;
 			children = (
+				C841E43020A522170088D0FE /* 1461298347288183414.png */,
+				C841E42E20A522170088D0FE /* CustomImageView.h */,
+				C841E42F20A522170088D0FE /* CustomImageView.m */,
+				C841E42D20A522170088D0FE /* WQCircularLoaderHUD.h */,
+				C841E43120A522170088D0FE /* WQCircularLoaderHUD.m */,
 				F786668B20A47745006D72FF /* AppDelegate.h */,
 				F786668C20A47745006D72FF /* AppDelegate.m */,
 				F786668E20A47745006D72FF /* ViewController.h */,
@@ -240,6 +265,7 @@
 			files = (
 				F786669820A47745006D72FF /* LaunchScreen.storyboard in Resources */,
 				F786669520A47745006D72FF /* Assets.xcassets in Resources */,
+				C841E43320A522170088D0FE /* 1461298347288183414.png in Resources */,
 				F786669320A47745006D72FF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +291,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C841E43420A522170088D0FE /* WQCircularLoaderHUD.m in Sources */,
 				F786669020A47745006D72FF /* ViewController.m in Sources */,
+				C841E43220A522170088D0FE /* CustomImageView.m in Sources */,
 				F786669B20A47745006D72FF /* main.m in Sources */,
 				F786668D20A47745006D72FF /* AppDelegate.m in Sources */,
 			);
@@ -432,6 +460,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WQProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xfq.WQProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -445,6 +474,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WQProgressHUD/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.xfq.WQProgressHUD;
 				PRODUCT_NAME = "$(TARGET_NAME)";

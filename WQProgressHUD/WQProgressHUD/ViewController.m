@@ -23,11 +23,6 @@
     view.layer.backgroundColor = [UIColor orangeColor].CGColor;
     view.backgroundColor = [UIColor cyanColor];
     
-    
-    
-    
-    
-    
     CustomImageView *hud = [[CustomImageView alloc] initWithFrame:CGRectMake(60, 300, 100, 100)];
     hud.image = [UIImage imageNamed:@"1461298347288183414"];
     
