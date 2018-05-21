@@ -18,34 +18,39 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
-    [self.view addSubview:label];
-    label.text = @"如题需求，试过增加渐变layer层，和添加阴影效果，但都是把原来的视图遮住了，效果都不理想。看文档中发现CALayer中有这样一个属性：";
-    CAGradientLayer *_gradLayer = [CAGradientLayer layer];
-    NSArray *colors = [NSArray arrayWithObjects:
-                       (id)[[UIColor colorWithWhite:0 alpha:0] CGColor],
-                       (id)[[UIColor colorWithWhite:0 alpha:0.5] CGColor],
-                       (id)[[UIColor colorWithWhite:0 alpha:1] CGColor],
-                       nil];
-    [_gradLayer setColors:colors];
-    //渐变起止点，point表示向量
-    [_gradLayer setStartPoint:CGPointMake(1.0f, 0.0f)];
-    [_gradLayer setEndPoint:CGPointMake(0.0f, 0.0f)];
-    
-    [_gradLayer setFrame:label.bounds];
-    
-    [label.layer setMask:_gradLayer];
+//    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 300, 300)];
+//    [self.view addSubview:label];
+//    label.text = @"如题需求，试过增加渐变layer层，和添加阴影效果，但都是把原来的视图遮住了，效果都不理想。看文档中发现CALayer中有这样一个属性：";
+//    CAGradientLayer *_gradLayer = [CAGradientLayer layer];
+//    NSArray *colors = [NSArray arrayWithObjects:
+//                       (id)[[UIColor colorWithWhite:0 alpha:0] CGColor],
+//                       (id)[[UIColor colorWithWhite:0 alpha:0.5] CGColor],
+//                       (id)[[UIColor colorWithWhite:0 alpha:1] CGColor],
+//                       nil];
+//    [_gradLayer setColors:colors];
+//    //渐变起止点，point表示向量
+//    [_gradLayer setStartPoint:CGPointMake(1.0f, 0.0f)];
+//    [_gradLayer setEndPoint:CGPointMake(0.0f, 0.0f)];
+//
+//    [_gradLayer setFrame:label.bounds];
+//
+//    [label.layer setMask:_gradLayer];
 
     
     
-    WQAutoScrollView * s = [[WQAutoScrollView alloc] initWithFrame:CGRectMake(20, 100, 300, 50)];
-    [self.view addSubview:s];
-    s.rows = 2;
-    s.dataArray = @[@"123",@"1234"];
+    WQAutoScrollView * s = [[WQAutoScrollView alloc] initWithFrame:CGRectMake(20, 300, 400, 50)];
+//    s.rows = 2;
+    s.text = @"火钱理财零钱罐临时下架，望周知!运行时系统火钱理财零钱罐临时下架，望周知!运行时系统火钱理财零钱罐临时下架，望周知!运行时系统";
+ 
     [s startScroll];
+    [self.view addSubview:s];
     
     
-    
+//    WQScrollTextView *broadcastLabel = [[WQScrollTextView alloc] initWithFrame:CGRectMake(20, 100, 300, 50)];
+//    broadcastLabel.textDataArr = @[@"火钱理财零钱罐临时下架，望周知！"];
+//
+//    [broadcastLabel startScrollBottomToTopWithNoSpace];
+//    [self.view addSubview:broadcastLabel];
     
     
     

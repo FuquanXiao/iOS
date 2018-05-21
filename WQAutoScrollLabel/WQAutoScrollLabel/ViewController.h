@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WQScrollTextView.h"
 @interface ViewController : UIViewController
 
 

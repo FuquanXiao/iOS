@@ -19,19 +19,21 @@ typedef NS_ENUM(NSInteger,ScrollOrientation){
 
 
 
-
+//每s移动的点数；（x距离）
 @property (nonatomic,assign)CGFloat scrollSpeed;
 
-@property (nonatomic, copy, nullable) NSArray * dataArray;
+@property (nonatomic,assign)CGFloat labelGap;
 
-@property (nonatomic,assign)ScrollOrientation scrollDirection;
+@property (nonatomic, copy, nullable) NSString * text;
+
+//@property (nonatomic,assign)ScrollOrientation scrollDirection;
 
 
 /**
  Scroll the number of rows at a time
  */
-@property (nonatomic,assign)NSInteger rows;
+//@property (nonatomic,assign)NSInteger rows;
 - (void)startScroll;
-- (void)stopScroll;
+//- (void)stopScroll;
 
 @end

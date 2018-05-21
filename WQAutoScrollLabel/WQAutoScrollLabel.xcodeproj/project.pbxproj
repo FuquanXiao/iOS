@@ -17,6 +17,7 @@
 		F727D61D20AFAE450024B1F0 /* WQAutoScrollLabelUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F727D61C20AFAE450024B1F0 /* WQAutoScrollLabelUITests.m */; };
 		F727D62C20AFAEA40024B1F0 /* WQAutoScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = F727D62B20AFAEA40024B1F0 /* WQAutoScrollView.m */; };
 		F727D62F20B044070024B1F0 /* AViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F727D62E20B044070024B1F0 /* AViewController.m */; };
+		F727D67F20B2F89C0024B1F0 /* WQScrollTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = F727D67E20B2F89C0024B1F0 /* WQScrollTextView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		F727D62B20AFAEA40024B1F0 /* WQAutoScrollView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQAutoScrollView.m; sourceTree = "<group>"; };
 		F727D62D20B044070024B1F0 /* AViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AViewController.h; sourceTree = "<group>"; };
 		F727D62E20B044070024B1F0 /* AViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AViewController.m; sourceTree = "<group>"; };
+		F727D67D20B2F89C0024B1F0 /* WQScrollTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WQScrollTextView.h; sourceTree = "<group>"; };
+		F727D67E20B2F89C0024B1F0 /* WQScrollTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQScrollTextView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +118,8 @@
 				F727D62E20B044070024B1F0 /* AViewController.m */,
 				F727D62A20AFAEA40024B1F0 /* WQAutoScrollView.h */,
 				F727D62B20AFAEA40024B1F0 /* WQAutoScrollView.m */,
+				F727D67D20B2F89C0024B1F0 /* WQScrollTextView.h */,
+				F727D67E20B2F89C0024B1F0 /* WQScrollTextView.m */,
 				F727D5FE20AFAE450024B1F0 /* Main.storyboard */,
 				F727D60120AFAE450024B1F0 /* Assets.xcassets */,
 				F727D60320AFAE450024B1F0 /* LaunchScreen.storyboard */,
@@ -277,6 +282,7 @@
 			files = (
 				F727D62C20AFAEA40024B1F0 /* WQAutoScrollView.m in Sources */,
 				F727D62F20B044070024B1F0 /* AViewController.m in Sources */,
+				F727D67F20B2F89C0024B1F0 /* WQScrollTextView.m in Sources */,
 				F727D5FD20AFAE450024B1F0 /* ViewController.m in Sources */,
 				F727D60820AFAE450024B1F0 /* main.m in Sources */,
 				F727D5FA20AFAE450024B1F0 /* AppDelegate.m in Sources */,
