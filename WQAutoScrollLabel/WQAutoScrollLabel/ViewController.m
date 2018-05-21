@@ -40,6 +40,21 @@
     
     WQAutoScrollView * s = [[WQAutoScrollView alloc] initWithFrame:CGRectMake(20, 100, 300, 50)];
     [self.view addSubview:s];
+    s.rows = 2;
+    s.dataArray = @[@"123",@"1234"];
+    [s startScroll];
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 //    s.text = @"火钱理财零钱罐临时下架，望周知！";
     // Do any additional setup after loading the view, typically from a nib.
 }

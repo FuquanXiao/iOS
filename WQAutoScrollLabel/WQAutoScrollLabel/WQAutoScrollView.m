@@ -18,6 +18,7 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
 
 @interface WQAutoScrollView()<UIScrollViewDelegate>
 {
+    UIView *currentView;UIView *standByView ;
 }
 
 @property (nonatomic,strong) UIScrollView *scrollView;
@@ -65,6 +66,7 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
     _scrollSpeed = 3;//s
     _rows = 1;
     _dataArray = @[];
+    [self createScrollViewWithDirection:ScrollOrientationFromBottomToTop andRows:2];
     
 }
 
@@ -105,7 +107,7 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
     [self removeAllLabels:self.standbyLables];
     
     [self createScrollViewWithDirection:_scrollDirection andRows:_rows];
-    
+    [self reSetFrameOfLableUI];
     
     
     
@@ -113,47 +115,78 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
 
 - (void)reSetFrameOfLableUI{
     
-    if (_scrollDirection == ScrollOrientationFromBottomToTop) {
+    if (_scrollDirection == ScrollOrientationFromBottomToTop ) {
+        
+        
+        currentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height )];
+        [self addSubview:currentView];
+        currentView.backgroundColor = [UIColor redColor];
+        currentView.tag = 10001;
+        
+        standByView = [[UIView alloc] initWithFrame:CGRectMake(0, -self.bounds.size.height, self.bounds.size.width, self.bounds.size.height)];
+        
+        [self addSubview:standByView];
+        standByView.backgroundColor = [UIColor cyanColor];
+        standByView.tag = 10002;
         
         for (int i = 0; i<self.currentLables.count; i++) {
             UILabel *label = (UILabel *)_currentLables[i];
             label.frame = CGRectMake(0, i * self.bounds.size.height * 1.0 / _rows, self.bounds.size.width, self.bounds.size.height * 1.0 / _rows);
-            [self addSubview:label];
+            if (i%2 != 1) {
+                label.backgroundColor = [UIColor magentaColor];
+            }
+            [currentView addSubview:label];
         }
         for (int i = 0; i<self.standbyLables.count; i++) {
             UILabel *label = (UILabel *)_standbyLables[i];
+            if (i%2 != 1) {
+                label.backgroundColor = [UIColor yellowColor];
+            }
             label.frame = CGRectMake(0,self.bounds.size.height + (i * self.bounds.size.height * 1.0 / _rows), self.bounds.size.width, self.bounds.size.height * 1.0 / _rows);
-            [self addSubview:label];
+            [standByView addSubview:label];
         }
         
     }
+    
+    [self scrollWithDirection:_scrollDirection];
 }
 - (void)scrollWithDirection:(ScrollOrientation)dire{
-    [UIView animateWithDuration:_scrollAnimationTime delay:_textStayTime options:0 animations:^{
+    
+    standByView.frame =  CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
+    
+    
+    [UIView animateWithDuration:4 delay:0.01 options:UIViewAnimationOptionLayoutSubviews animations:^{
         
-        _currentScrollLabel.frame = CGRectMake(0, -self.lmj_height*direction.integerValue, _currentScrollLabel.lmj_width, _currentScrollLabel.lmj_height);
-        _standbyScrollLabel.frame = CGRectMake(0, 0, _standbyScrollLabel.lmj_width, _standbyScrollLabel.lmj_height);
+        currentView.frame = CGRectMake(0, - self.bounds.size.height, self.bounds.size.width, self.bounds.size.height);
+        standByView.frame = CGRectMake(0, 0, self.bounds.size.width, self.bounds.size.height);
         
     } completion:^(BOOL finished) {
         
         //            当currentindex>arr.count时=0
-        _index = [self nextIndex:_index];
-        
-        //            交换 两个label
-        UILabel * temp = _currentScrollLabel;
-        _currentScrollLabel = _standbyScrollLabel;
-        _standbyScrollLabel = temp;
-        
-        if (_needStop) {
-            _isRunning = NO;
-        }else{
-            [self performSelector:@selector(scrollWithNoSpaceByDirection:) withObject:direction];
-        }
+//        _index = [self nextIndex:_index];
+//
+//        //            交换 两个label
+        UIView * temp = currentView;
+        currentView = standByView;
+        standByView = temp;
+//
+//        if (_needStop) {
+//            _isRunning = NO;
+//        }else{
+            [self scrollWithDirection:ScrollOrientationFromBottomToTop];
+//        }
     }];
 }
-
+- (NSInteger)nextIndex:(NSInteger)index{
+    if (index>self.dataArray.count - 1) {
+        return 0;
+    }
+    else{
+        return 0;
+    }
+}
 - (void)stopScroll{
-    
+    [self scrollWithDirection:ScrollOrientationFromBottomToTop];
 }
 
 
