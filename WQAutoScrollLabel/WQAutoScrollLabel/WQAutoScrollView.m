@@ -20,6 +20,7 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
 {
     UIView *currentView;
     UIView *standByView;
+    NSTimeInterval delayTime;
 }
 
 @property (nonatomic,strong) UIScrollView *scrollView;
@@ -54,6 +55,7 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
 //    self.backgroundColor = [UIColor magentaColor];
     _labelGap = self.bounds.size.width - 30;
     _scrollSpeed = 15;
+    delayTime = 0.5;
    
 }
 
@@ -110,8 +112,10 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
     if (size.width<self.bounds.size.width - 30) {
         return;
     }
+    
+    
 
-    [UIView animateWithDuration:size.width*1.0/_scrollSpeed delay:0.01 options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear | UIViewAnimationOptionCurveEaseOut animations:^{
+    [UIView animateWithDuration:size.width*1.0/_scrollSpeed delay:delayTime options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear | UIViewAnimationOptionCurveEaseOut animations:^{
 
             self.scrollView.contentOffset = CGPointMake(self.scrollView.contentSize.width/2.0, 0);
 
@@ -119,6 +123,7 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
 
         // 完成后循调用
         if (finished) {
+            delayTime = 0.5;
             [self startScroll];
         }
     }];
