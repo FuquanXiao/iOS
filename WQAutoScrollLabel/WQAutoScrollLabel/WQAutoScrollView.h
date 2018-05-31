@@ -8,12 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-typedef NS_ENUM(NSInteger,ScrollOrientation){
-    ScrollOrientationFromBottomToTop,
-    ScrollOrientationFromTopToBottom,
-    ScrollOrientationFromRightToLeft,
-    ScrollOrientationFromLeftToRight,
-};
 
 @interface WQAutoScrollView : UIView
 
@@ -26,14 +20,7 @@ typedef NS_ENUM(NSInteger,ScrollOrientation){
 
 @property (nonatomic, copy, nullable) NSString * text;
 
-//@property (nonatomic,assign)ScrollOrientation scrollDirection;
-
-
-/**
- Scroll the number of rows at a time
- */
-//@property (nonatomic,assign)NSInteger rows;
 - (void)startScroll;
-//- (void)stopScroll;
+
 
 @end

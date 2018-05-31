@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+//跑马灯
 #import "WQAutoScrollView.h"
 #import "AViewController.h"
 @interface ViewController ()
@@ -36,6 +37,8 @@
 //
 //    [label.layer setMask:_gradLayer];
 
+    
+    
     
     
     WQAutoScrollView * s = [[WQAutoScrollView alloc] initWithFrame:CGRectMake(20, 300, 400, 50)];

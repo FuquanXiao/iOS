@@ -6,15 +6,11 @@
 //  Copyright © 2018年 xfq. All rights reserved.
 //
 
+//跑马灯
 #import "WQAutoScrollView.h"
 
 typedef void(^block)(UILabel *label);
 
-static void each_Object(NSMutableArray *arrays,block labelBlock){
-    for (UILabel *label in arrays) {
-        labelBlock(label);
-    }
-}
 
 @interface WQAutoScrollView()<UIScrollViewDelegate>
 {
@@ -25,9 +21,6 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
 
 @property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic,strong) NSMutableArray *lablSets;
-
-
-
 
 
 
@@ -52,7 +45,6 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
 }
 
 - (void)initConfig{
-//    self.backgroundColor = [UIColor magentaColor];
     _labelGap = self.bounds.size.width - 30;
     _scrollSpeed = 15;
     delayTime = 0.5;
@@ -75,7 +67,6 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
         UILabel *label = [[UILabel alloc] init];
         label.font = [UIFont systemFontOfSize:21];
         label.frame = CGRectMake(i*(size.width + _labelGap), 0, (size.width), self.bounds.size.height);
-//        label.backgroundColor = [UIColor redColor];
         label.text = _text;
         [self.scrollView addSubview:label];
         offset += (size.width + _labelGap);
@@ -83,24 +74,6 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
     }
     self.scrollView.contentSize = CGSizeMake(offset, self.scrollView.bounds.size.height);
     
-    
-//    each_Object(self.lablSets, ^(UILabel *label) {
-//        [label sizeToFit];
-//        NSDictionary *attDict = @{NSFontAttributeName:[UIFont systemFontOfSize:21]};
-////        NSMutableAttributedString *attribute = [[NSMutableAttributedString alloc] initWithString:label.text attributes:attDict];
-//
-//        CGSize size = [self.text boundingRectWithSize:self.bounds.size options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:attDict context:nil].size;
-//
-////        CGSize heightSize = [self.text boundingRectWithSize:CGSizeMake(size.width, self.bounds.size.height) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:attDict context:nil].size;
-//
-//
-//        label.frame = CGRectMake(offset, 0, size.width, self.bounds.size.height);
-//        offset = size.width + _labelGap  + offset;
-//        label.backgroundColor = [UIColor redColor];
-//
-//        [self.scrollView addSubview:label];
-//
-//    });
    
 }
 
@@ -139,8 +112,8 @@ static void each_Object(NSMutableArray *arrays,block labelBlock){
         CAGradientLayer *_gradLayer = [CAGradientLayer layer];
         NSArray *colors = [NSArray arrayWithObjects:
                            (id)[[UIColor colorWithWhite:0 alpha:0.0] CGColor],
+                           (id)[[UIColor colorWithWhite:0 alpha:0.75] CGColor],
                            (id)[[UIColor colorWithWhite:0 alpha:0.85] CGColor],
-                           (id)[[UIColor colorWithWhite:0 alpha:0.90] CGColor],
                            (id)[[UIColor colorWithWhite:0 alpha:0.95] CGColor],
                            (id)[[UIColor colorWithWhite:0 alpha:1.0] CGColor],
                            nil];
