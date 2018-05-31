@@ -11,12 +11,16 @@
 
 typedef void(^block)(UILabel *label);
 
+#define countNumber 2
+
 
 @interface WQAutoScrollView()<UIScrollViewDelegate>
 {
     UIView *currentView;
     UIView *standByView;
+    UILabel *labels[countNumber];
     NSTimeInterval delayTime;
+    NSMutableArray *labelSizeArray ;
 }
 
 @property (nonatomic,strong) UIScrollView *scrollView;
@@ -48,19 +52,45 @@ typedef void(^block)(UILabel *label);
     _labelGap = self.bounds.size.width - 30;
     _scrollSpeed = 15;
     delayTime = 0.5;
+    [self setScrollDirection:ScrollOrientationFromRightToLeft];
+    for (int i = 0; i<countNumber; i++) {
+        labels[i] = [[UILabel alloc] init];
+        
+    }
+    
+    
+    
    
 }
 
+- (void)setScrollDirection:(ScrollOrientation)scrollDirection{
+    _scrollDirection = scrollDirection;
+    [self refreshLabelWithDirection:_scrollDirection];
+}
 
 - (void)setText:(NSString *)scrollText{
     _text = scrollText;
-    [self refreshLabel];
+    
+    for (int i = 0; i<countNumber; i++) {
+        UILabel *label = (UILabel *)[self viewWithTag:100+i];
+        label.text = scrollText;
+    }
+    
+
 }
 
+- (void)setTextDataArray:(NSArray *)textDataArray{
+    _textDataArray = textDataArray;
+    labelSizeArray = [self getTextLengthArray:textDataArray];
+    
+    
+    
+}
 
-- (void)refreshLabel{
-     CGFloat offset = 0;
-    for (int i = 0; i<2; i++) {
+- (NSMutableArray *)getTextLengthArray:(NSArray *)textArray{
+    
+    NSMutableArray *sizeArray = [@[] mutableCopy];
+    for (int i = 0; i<textArray.count; i++) {
         NSDictionary *attDict = @{NSFontAttributeName:[UIFont systemFontOfSize:21]};
          CGSize size = [self.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 50) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:attDict context:nil].size;
         
@@ -71,36 +101,87 @@ typedef void(^block)(UILabel *label);
         [self.scrollView addSubview:label];
         offset += (size.width + _labelGap);
         
+        CGSize size = [textArray[i] boundingRectWithSize:CGSizeMake(MAXFLOAT, 50) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:attDict context:nil].size;
+        [sizeArray addObject:@(size.width)];
+
     }
-    self.scrollView.contentSize = CGSizeMake(offset, self.scrollView.bounds.size.height);
-    
-   
+    return sizeArray;
+
 }
+
+- (void)refreshLabelWithDirection:(ScrollOrientation)scrollDirection{
+    if (scrollDirection == ScrollOrientationFromRightToLeft) {
+        CGFloat offset = 0;
+        for (int i = 0; i<countNumber; i++) {
+            NSDictionary *attDict = @{NSFontAttributeName:[UIFont systemFontOfSize:21]};
+            CGSize size = [self.text boundingRectWithSize:CGSizeMake(MAXFLOAT, 50) options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:attDict context:nil].size;
+            
+            UILabel *label = [[UILabel alloc] init];
+            label.font = [UIFont systemFontOfSize:21];
+            label.frame = CGRectMake(i*(size.width + _labelGap), 0, (size.width), self.bounds.size.height);
+            label.tag = countNumber + 100;
+            label.text = _text;
+            
+            [self.scrollView addSubview:label];
+            offset += (size.width + _labelGap);
+            
+        }
+        self.scrollView.contentSize = CGSizeMake(offset, self.scrollView.bounds.size.height);
+        
+    }
+    else if (scrollDirection == ScrollOrientationFromBottomToTop){
+        
+        for (int i = 0; i<countNumber; i++) {
+            UIView *labelView = [[UIView alloc] initWithFrame:CGRectMake(0, self.bounds.size.height * i, self.bounds.size.width, self.bounds.size.height)];
+            [self.scrollView addSubview:labelView];
+            
+        }
+        self.scrollView.contentSize = CGSizeMake(self.bounds.size.width, self.bounds.size.height * 2);
+        
+    }
+}
+
+//重新设置ui的位置
+- (void)resetUIFrame{
+    if (_scrollDirection == ScrollOrientationFromRightToLeft) {
+        labels[0].frame = CGRectMake(0, 0, [labelSizeArray[0] floatValue], 50);
+        labels[1].frame = CGRectMake([labelSizeArray[0] floatValue] + _labelGap, 0, [labelSizeArray[1] floatValue], 50);
+    }
+}
+
 
 - (void)startScroll{
-    NSDictionary *attDict = @{NSFontAttributeName:[UIFont systemFontOfSize:21]};
-
-     CGSize size = [self.text boundingRectWithSize:self.bounds.size options:NSStringDrawingUsesFontLeading | NSStringDrawingUsesLineFragmentOrigin attributes:attDict context:nil].size;
-    
-    if (size.width<self.bounds.size.width - 30) {
-        return;
-    }
+    [self resetUIFrame];
+    [self animationStart];
     
     
-
-    [UIView animateWithDuration:size.width*1.0/_scrollSpeed delay:delayTime options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear | UIViewAnimationOptionCurveEaseOut animations:^{
-
-            self.scrollView.contentOffset = CGPointMake(self.scrollView.contentSize.width/2.0, 0);
-
-    } completion:^(BOOL finished) {
-
-        // 完成后循调用
-        if (finished) {
-            delayTime = 0.5;
-            [self startScroll];
-        }
-    }];
 }
+
+- (void)animationStart{
+    if (self.scrollDirection == ScrollOrientationFromRightToLeft) {
+        NSDictionary *attDict = @{NSFontAttributeName:[UIFont systemFontOfSize:21]};
+        
+        
+        
+        [UIView animateWithDuration:[UIScreen mainScreen].bounds.size.width/_scrollSpeed delay:delayTime options:UIViewAnimationOptionRepeat | UIViewAnimationOptionCurveLinear | UIViewAnimationOptionCurveEaseOut animations:^{
+//            self.scrollView.contentOffset = CGPointMake(self.scrollView.contentSize.width/2.0, 0);
+            
+            
+        } completion:^(BOOL finished) {
+            
+            // 完成后循调用
+            if (finished) {
+                delayTime = 0.5;
+                [self startScroll];
+            }
+        }];
+    }else{
+        
+        
+    }
+}
+
+
 
 - (UIScrollView *)scrollView{
     if (!_scrollView) {

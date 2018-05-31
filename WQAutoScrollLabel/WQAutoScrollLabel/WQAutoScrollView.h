@@ -19,6 +19,10 @@
 @property (nonatomic,assign)CGFloat labelGap;
 
 @property (nonatomic, copy, nullable) NSString * text;
+@property (nonatomic,copy)NSArray *textDataArray;
+
+@property (nonatomic,assign)ScrollOrientation scrollDirection;
+
 
 - (void)startScroll;
 
