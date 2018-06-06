@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C848315820C65EC0004D2B7C /* WQPieView.m in Sources */ = {isa = PBXBuildFile; fileRef = C848315720C65EC0004D2B7C /* WQPieView.m */; };
 		C84F164820C537B60023E9B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C84F164720C537B60023E9B8 /* AppDelegate.m */; };
 		C84F164B20C537B60023E9B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C84F164A20C537B60023E9B8 /* ViewController.m */; };
 		C84F164E20C537B60023E9B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C84F164C20C537B60023E9B8 /* Main.storyboard */; };
@@ -37,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C848315620C65EC0004D2B7C /* WQPieView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WQPieView.h; sourceTree = "<group>"; };
+		C848315720C65EC0004D2B7C /* WQPieView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WQPieView.m; sourceTree = "<group>"; };
 		C84F164320C537B60023E9B8 /* WQRingStatisticsView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WQRingStatisticsView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C84F164620C537B60023E9B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C84F164720C537B60023E9B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -115,6 +118,8 @@
 				C84F167920C537F40023E9B8 /* WQRingStatisticsView.m */,
 				C84F167B20C548AB0023E9B8 /* WQCanClickShapeLayer.h */,
 				C84F167C20C548AB0023E9B8 /* WQCanClickShapeLayer.m */,
+				C848315620C65EC0004D2B7C /* WQPieView.h */,
+				C848315720C65EC0004D2B7C /* WQPieView.m */,
 				C84F164C20C537B60023E9B8 /* Main.storyboard */,
 				C84F164F20C537B60023E9B8 /* Assets.xcassets */,
 				C84F165120C537B60023E9B8 /* LaunchScreen.storyboard */,
@@ -278,6 +283,7 @@
 				C84F167D20C548AB0023E9B8 /* WQCanClickShapeLayer.m in Sources */,
 				C84F164B20C537B60023E9B8 /* ViewController.m in Sources */,
 				C84F165620C537B60023E9B8 /* main.m in Sources */,
+				C848315820C65EC0004D2B7C /* WQPieView.m in Sources */,
 				C84F164820C537B60023E9B8 /* AppDelegate.m in Sources */,
 				C84F167A20C537F40023E9B8 /* WQRingStatisticsView.m in Sources */,
 			);

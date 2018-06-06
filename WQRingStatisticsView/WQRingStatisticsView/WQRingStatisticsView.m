@@ -19,6 +19,13 @@
 {
     CGFloat startAngle;
     CGFloat endAngle;
+    
+    NSMutableArray *layerArray;
+    NSMutableArray *layerPathArray;
+    
+    //半径
+    CGFloat pieR;
+    
 }
 @end
 
@@ -30,6 +37,7 @@
     if (self = [super initWithFrame:frame]) {
         self.dataArray = dataArray;
         self.backgroundColor = [UIColor cyanColor];
+        
         [self configInit];
         
     }
@@ -48,6 +56,7 @@
 - (void)configInit{
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapHandle:)];
     [self addGestureRecognizer:tap];
+  
 }
 - (void)tapHandle:(UITapGestureRecognizer *)gesture{
     CGPoint point = [gesture locationInView:self];
@@ -57,28 +66,89 @@
 - (void)setDataArray:(NSArray *)dataArray{
     
     _dataArray = dataArray;
-    
+    layerArray = [[NSMutableArray alloc] init];
+    layerPathArray = [[NSMutableArray alloc] init];
    
+    for (WQCanClickShapeLayer *layer in self.layer.sublayers) {
+        [layer removeFromSuperlayer];
+    }
     
+
     
     
     
     for (int i = 0; i <= dataArray.count; i++) {
         WQCanClickShapeLayer *shapLayer = [WQCanClickShapeLayer layer];
         shapLayer.frame = self.bounds;
-         UIBezierPath *bezierPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.frame.size.width/2.0, self.frame.size.height/2.0) radius:50 startAngle:AngleRadian(-90) endAngle:AngleRadian(270) clockwise:YES];
+        
+        
+        NSNumber *startNu = [self getEndAngle][i];
+        NSNumber *endNu = [self getEndAngle][i+1];
+        shapLayer.strokeStart = [startNu floatValue];
+        shapLayer.strokeEnd = [endNu floatValue];
+        
+        
+        
+        
+         UIBezierPath *bezierPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(self.frame.size.width/2.0, self.frame.size.height/2.0) radius:50 startAngle:[startNu floatValue] endAngle:[endNu floatValue] clockwise:NO];
+        [bezierPath addArcWithCenter:CGPointMake(self.frame.size.width/2.0, self.frame.size.height/2.0) radius:50 startAngle:[startNu floatValue] endAngle:[endNu floatValue] clockwise:YES];
         
         shapLayer.lineWidth = self.frame.size.width/2.0;
         shapLayer.fillColor = [UIColor clearColor].CGColor;
         shapLayer.strokeColor = randomColor.CGColor;
         shapLayer.path = bezierPath.CGPath;
         
-        NSNumber *startNu = [self getEndAngle][i];
-        NSNumber *endNu = [self getEndAngle][i+1];
-        shapLayer.strokeStart = [startNu floatValue];
-        shapLayer.strokeEnd = [endNu floatValue];
+      
+        
+        shapLayer.centerPoint = CGPointMake(self.frame.size.width/2.0, self.frame.size.height/2.0);
+        shapLayer.startAngle = [startNu floatValue];
+        shapLayer.endAngle = [endNu floatValue];
+        shapLayer.radius = 50.0f;
+        
+        
+        
         shapLayer.lineWidth = 20;
         [self.layer addSublayer:shapLayer];
+        
+        
+        CABasicAnimation *basic = [CABasicAnimation animationWithKeyPath:@"strokeEnd"];
+        
+     
+        
+        basic.fromValue = @([startNu floatValue]);
+        basic.toValue = @([endNu floatValue]);
+    
+        basic.duration = 0.5;
+        basic.fillMode = kCAFillModeForwards;
+       [shapLayer addAnimation:basic forKey:@"basic"];
+        [layerArray addObject:shapLayer];
+        [layerPathArray addObject:bezierPath];
+
+        
+
+
+        
+    }
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    CGPoint touchPoint = [[touches anyObject] locationInView:self];
+    
+    
+    for (WQCanClickShapeLayer *shapeaaLayer in layerArray) {
+        if (CGPathContainsPoint(shapeaaLayer.path, 0, touchPoint, YES)) {
+            //修改选中状态
+            if (shapeaaLayer.selected) {
+                
+                shapeaaLayer.selected = NO;
+            }else{
+                shapeaaLayer.selected = YES;
+            }
+        }
+        else {
+            
+            shapeaaLayer.selected = NO;
+        }
     }
 }
 
